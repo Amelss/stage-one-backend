@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 
 // Load environment variables from the .env file
-// dotenv.config();
+dotenv.config();
 
 // Function to format a date as "YYYY-MM-DDTHH:mm:ssZ"
 function formatUTCDate(date) {
@@ -33,8 +33,8 @@ app.get("/api", (req, res) => {
     const utc_time = formatUTCDate(currentDate);
 
     // GitHub URLs based on query parameters
-    const github_file_url = `https://github.com/Amelss/stage-one-backend/blob/main/${track}server.js`;
-    const github_repo_url = `https://github.com/Amelss/stage-one-backend${track}`;
+    const github_file_url = `https://github.com/Amelss/stage-one-backend/blob/main/server.js`;
+    const github_repo_url = `https://github.com/Amelss/stage-one-backend`;
 
     // Prepare the response object
     const response = {
@@ -66,7 +66,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(
     `Server is running on ${
-       "http://localhost:3000"
+      process.env.DEPLOYED_URL || "http://localhost:3000"
     }`
   );
 });
