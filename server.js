@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
 // Load environment variables from the .env file
-dotenv.config();
+// dotenv.config();
 
 // Function to format a date as "YYYY-MM-DDTHH:mm:ssZ"
 function formatUTCDate(date) {
@@ -66,7 +66,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(
     `Server is running on ${
-      process.env.DEPLOYMENT_URL || "http://localhost:3000"
+       "http://localhost:3000"
     }`
   );
 });
